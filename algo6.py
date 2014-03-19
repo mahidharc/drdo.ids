@@ -22,7 +22,6 @@ def updateProbabilities(stream, bandCount, band, observableTypeIndex):
     avgCount = 0
     stream.trainWindowCount += bandCount
     for j in range(0,bandCount):
-      '''print observableTypeIndex, band[j][0]'''
       nelband = band[j][0]
       for k in range(1,nelband+1):
         avgCount += stream.probabilityArray[observableTypeIndex][band[j][k]-2]
@@ -41,4 +40,4 @@ band = determineOptimalBands(A,10,5) +1
 for i in range(6):
   stream = updateProbabilities(stream, stream.bandCount, band, i)
 
-pprint(stream.probabilityArray1)
+pprint(stream.probabilityArray)
