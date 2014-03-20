@@ -1,4 +1,5 @@
 from algo6 import *
+from math import *
 
 class TCPstream:
   destinationIP = ""
@@ -19,12 +20,33 @@ class TCPstream:
 
 def train(stream,trafficStatistics,windowSize,bandCount):
   flagArray = fromfile("op_flag", dtype = int16, sep = '\n')
-  print flagArray
-  print trafficStatistics, windowSize, bandCount
+  windowCount = ceil(flagArray.size/windowSize)
+  windowCount = int(windowCount)
+  flagArray = flagArray.reshape(windowCount,windowSize)
 
-  '''for i in range(6):
+#TODO figure out how to write a proper switch statement for the 6 types of flags
+  for i in range(windowCount):
+    for j in range(windowSize):
+      if flagArray[i][j] == 2:
+        stream.packetCounter[1] += 1
+      elif flagArray[i][j] == 3:
+        stream.packetCounter[2] += 1
+      elif flagArray[i][j] == 4:
+        stream.packetCounter[3] += 1
+      elif flagArray[i][j] == 5:
+        stream.packetCounter[4] += 1
+
+    for j in range(1,6):
+      stream.probabilityArray[j][stream.packetCounter[j]] += 1
+
+    stream.trainWindowCount += 1
+    stream.packetCounter = zeros(6)
+  print stream.probabilityArray
+  '''for i in range(1,6):
     band=determineOptimalBands(stream.probabilityArray[i],windowSize,bandCount)
-    stream=updateProbabilities(stream,bandCount,bandCount,i)'''
+    stream=updateProbabilities(stream,bandCount,band,i)'''
+
+
 
 
 stream = TCPstream(100,40)
