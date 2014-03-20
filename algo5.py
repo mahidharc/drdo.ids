@@ -8,7 +8,6 @@ def determineOptimalBands(arrayA,windowSize,bandCount):
   nelements = 0
   indexArray = zeros(bandCount-1)
   band = zeros(bandCount*windowSize).reshape(bandCount, windowSize) - 1
-  finalK = -1
 
   sortedA = sorted(arrayA,reverse=True)
   for i in range(windowSize-1):
@@ -26,18 +25,21 @@ def determineOptimalBands(arrayA,windowSize,bandCount):
     nelements = upper - lower + 1
     k = 0
     band[i][k] = nelements
+    k += 1
     temp = sortedA[lower:lower+nelements]
     arrayAPos = argsort(arrayA)
     tempPos = searchsorted(arrayA[arrayAPos],temp,sorter=None)
     for x in arrayAPos[tempPos]:
       band[i][k] = x
       k += 1
-      finalK += 1
     lower += nelements
 
   arrayAPosReversed = arrayAPos[::-1]
   k=0
-  for x in range(finalK+1,windowSize+1):
-    band[i+1][k] = arrayAPosReversed[x]
-    k += 1
+  for x in range(bandCount+1,windowSize+1):
+    band[i+1][bandCount] = arrayAPosReversed[x]
+    bandCount += 1
+  #print band
   return band.astype(int32)
+#A = array([500, 291, 271, 36, 222, 111, 1211, 3, 2, 31, 1])
+#band = determineOptimalBands(A,10,5)

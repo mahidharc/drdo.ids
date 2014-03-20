@@ -24,19 +24,19 @@ def updateProbabilities(stream, bandCount, band, observableTypeIndex):
     for j in range(0,bandCount):
       nelband = band[j][0]
       for k in range(1,nelband+1):
-        avgCount += stream.probabilityArray[observableTypeIndex][band[j][k]-2]
+        avgCount += stream.probabilityArray[observableTypeIndex][band[j][k]]
       avgCount += 1
       avgCount /= nelband
       for k in range(1,nelband+1):
-        stream.probabilityArray[observableTypeIndex][band[j][k]-2] = avgCount
+        stream.probabilityArray[observableTypeIndex][band[j][k]] = avgCount
       for k in range(1,nelband+1):
-        stream.probabilityArray[observableTypeIndex][band[j][k]-2] /= stream.trainWindowCount
+        stream.probabilityArray[observableTypeIndex][band[j][k]] /= stream.trainWindowCount
       avgCount = 0
     return stream
 
 stream = TCPstream(10,5);
 A = array([500, 291, 271, 36, 222, 111, 1211, 3, 2, 31, 1])
-band = determineOptimalBands(A,10,5) +1
+band = determineOptimalBands(A,10,5)
 for i in range(6):
   stream = updateProbabilities(stream, stream.bandCount, band, i)
 
