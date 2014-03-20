@@ -34,10 +34,3 @@ def updateProbabilities(stream, bandCount, band, observableTypeIndex):
       avgCount = 0
     return stream
 
-stream = TCPstream(10,5);
-A = array([500, 291, 271, 36, 222, 111, 1211, 3, 2, 31, 1])
-band = determineOptimalBands(A,10,5)
-for i in range(6):
-  stream = updateProbabilities(stream, stream.bandCount, band, i)
-
-pprint(stream.probabilityArray)
