@@ -35,11 +35,7 @@ def determineOptimalBands(arrayA,windowSize,bandCount):
     lower += nelements
 
   arrayAPosReversed = arrayAPos[::-1]
-  k=0
   for x in range(bandCount+1,windowSize+1):
     band[i+1][bandCount] = arrayAPosReversed[x]
     bandCount += 1
-  #print band
   return band.astype(int32)
-#A = array([500, 291, 271, 36, 222, 111, 1211, 3, 2, 31, 1])
-#band = determineOptimalBands(A,10,5)
