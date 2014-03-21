@@ -35,19 +35,18 @@ def train(stream,trafficStatistics,windowSize,bandCount):
         stream.packetCounter[3] += 1
       elif flagArray[i][j] == 5:
         stream.packetCounter[4] += 1
-
-    for j in range(1,6):
+    for j in range(0,6):
+      if stream.packetCounter[j] == 0:
+        continue
       stream.probabilityArray[j][stream.packetCounter[j]] += 1
 
     stream.trainWindowCount += 1
     stream.packetCounter = zeros(6)
-  print stream.probabilityArray
-  '''for i in range(1,6):
+  for i in range(0,6):
     band=determineOptimalBands(stream.probabilityArray[i],windowSize,bandCount)
-    stream=updateProbabilities(stream,bandCount,band,i)'''
-
-
+    stream=updateProbabilities(stream,bandCount,band,i)
 
 
 stream = TCPstream(100,40)
 train(stream,stream.packetCounter,stream.windowSize,stream.bandCount)
+savetxt("capture", stream.probabilityArray)
