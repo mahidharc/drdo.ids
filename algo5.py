@@ -32,10 +32,10 @@ def determineOptimalBands(arrayA,windowSize,bandCount):
     for x in arrayAPos[tempPos]:
       band[i][k] = x
       k += 1
-    lower += nelements
+    lower = upper + 1
 
   arrayAPosReversed = arrayAPos[::-1]
-  for x in range(bandCount+1,windowSize):
+  for x in range(bandCount+1,windowSize+1):
     band[i+1][bandCount] = arrayAPosReversed[x]
     bandCount += 1
   return band.astype(int32)
