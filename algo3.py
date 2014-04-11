@@ -19,7 +19,7 @@ class TCPstream:
 
 
 def train(stream,trafficStatistics,windowSize,bandCount):
-  flagArray = fromfile("op_flag", dtype = int16, sep = '\n')
+  flagArray = fromfile("op", dtype = int16, sep = '\n')
   windowCount = ceil(flagArray.size/windowSize)
   windowCount = int(windowCount)
   flagArray = flagArray.reshape(windowCount,windowSize)
@@ -39,14 +39,24 @@ def train(stream,trafficStatistics,windowSize,bandCount):
       if stream.packetCounter[j] == 0:
         continue
       stream.probabilityArray[j][stream.packetCounter[j]] += 1
+      savetxt("event", stream.probabilityArray)
 
     stream.trainWindowCount += 1
     stream.packetCounter = zeros(6)
+    print stream.trainWindowCount
   for i in range(0,6):
-    band=determineOptimalBands(stream.probabilityArray[i],windowSize,bandCount)
+    band=determineOptimalBands(stream.probabilityArray[i],windowSize-1,bandCount)
     stream=updateProbabilities(stream,bandCount,band,i)
+    savetxt("band" + str(i), band)
 
 
-stream = TCPstream(100,40)
+stream = TCPstream(10,5)
 train(stream,stream.packetCounter,stream.windowSize,stream.bandCount)
+#To find out the sum of the array : expected Probability=1
+arsum=0
+for row in range(len(stream.probabilityArray)):
+  for col in range(stream.windowSize):
+    arsum=arsum+(stream.probabilityArray[row][col])
+
+print arsum
 savetxt("capture", stream.probabilityArray)
