@@ -38,7 +38,7 @@ def train(stream,trafficStatistics,windowSize,bandCount):
     for j in range(0,6):
       if stream.packetCounter[j] == 0:
         continue
-      stream.probabilityArray[j][stream.packetCounter[j]] += 1  
+      stream.probabilityArray[j][stream.packetCounter[j]] += 1
     stream.trainWindowCount += 1
     stream.packetCounter = zeros(6)
     print stream.trainWindowCount
@@ -48,5 +48,5 @@ def train(stream,trafficStatistics,windowSize,bandCount):
 
 
 
-stream = TCPstream(10,5)
+stream = TCPstream(100,40)
 train(stream,stream.packetCounter,stream.windowSize,stream.bandCount)
