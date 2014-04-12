@@ -1,21 +1,6 @@
 from algo6 import *
 from math import *
-
-class TCPstream:
-  destinationIP = ""
-  destinationPort = ""
-  windowSize = 0
-  bandCount = 0
-  errorProportion = 0.0
-  trainWindowCount = 0
-  packetCounter = zeros(6)
-  probabilityArray = array([])
-  thresholdProbability = 0.0
-
-  def __init__(self,winSize,bandC):
-    self.windowSize = winSize
-    self.probabilityArray = zeros(self.windowSize*6).reshape(6,self.windowSize)
-    self.bandCount = bandC
+from algo2 import *
 
 
 def train(stream,trafficStatistics,windowSize,bandCount):
@@ -41,7 +26,6 @@ def train(stream,trafficStatistics,windowSize,bandCount):
       stream.probabilityArray[j][stream.packetCounter[j]] += 1
     stream.trainWindowCount += 1
     stream.packetCounter = zeros(6)
-    print stream.trainWindowCount
   for i in range(0,6):
     band=determineOptimalBands(stream.probabilityArray[i],windowSize-1,bandCount)
     stream=updateProbabilities(stream,bandCount,band,i)
