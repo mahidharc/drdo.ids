@@ -7,5 +7,5 @@ def trainPhase(stream, packetCounter, windowSize, bandCount, errorProportion, gr
   flagArray = fromfile("op_flag", dtype = int16, sep = '\n')
   stream = train(stream, windowSize, bandCount, flagArray)
   #Determine threshold probability for the stream
-  stream.thresholdProbability = determineThresholdProbability(stream, groups, flagArray)
+  stream.thresholdProbability = determineThresholdProbability(stream, groupCount, flagArray)
   return stream

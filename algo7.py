@@ -5,10 +5,11 @@ from numpy import *
 
 def determineThresholdProbability(stream, groupCount, flagArray):
   parray = zeros(groupCount)
-  for n in groupCount:
+  for n in range(groupCount):
     initialValue = randint(0,len(flagArray))
     proportionArray = array([])
     groupRange = round(len(flagArray)/groupCount)
+
     #TODO the groups modulus thing
     for i in range(initialValue, initialValue+groupRange):
       append(proportionArray, flagArray[i])
