@@ -1,4 +1,4 @@
-from numpy import *
+from algo8 import *
 
 def determineOptimalBands(arrayA,windowSize,bandCount):
   jumpCount = zeros(windowSize)

@@ -1,24 +1,11 @@
+from algo3 import *
+from algo7 import *
 from numpy import *
 
-class TCPstream:
-  destinationIP = ""
-  destinationPort = ""
-  windowSize = 0
-  bandCount = 0
-  errorProportion = 0.0
-  trainWindowCount = 0
-  packetCounter = zeros(6)
-  probabilityArray = array([])
-  thresholdProbability = 0.0
-
-  def __init__(self,winSize,bandC):
-    self.windowSize = winSize
-    self.probabilityArray = zeros(self.windowSize*6).reshape(6,self.windowSize)
-    self.bandCount = bandC
-
-def trainPhase(stream, packetCounter, windowSize, bandCount, errorProportion):
+def trainPhase(stream, packetCounter, windowSize, bandCount, errorProportion, groupCount):
   #update model probabilities
-  stream = train(stream, packetCounter, windowSize, bandCount)
+  flagArray = fromfile("op_flag", dtype = int16, sep = '\n')
+  stream = train(stream, windowSize, bandCount, flagArray)
   #Determine threshold probability for the stream
-  stream.thresholdProbability = determineThresholdProbability(stream.windowSize,stream.packetCounter,stream.errorProportion)
+  stream.thresholdProbability = determineThresholdProbability(stream, groups, flagArray)
   return stream

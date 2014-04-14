@@ -1,10 +1,8 @@
 from algo6 import *
 from math import *
-from algo2 import *
 
 
-def train(stream,trafficStatistics,windowSize,bandCount):
-  flagArray = fromfile("op_flag", dtype = int16, sep = '\n')
+def train(stream,windowSize,bandCount,flagArray):
   windowCount = ceil(flagArray.size/windowSize)
   windowCount = int(windowCount)
   flagArray = flagArray.reshape(windowCount,windowSize)
