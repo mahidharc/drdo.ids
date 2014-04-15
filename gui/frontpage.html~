@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <style type="text/css">	
+	.heading
+	{
+	 font-weight:normal;
+	 font-family:"Crimson Text","Liberation Serif",Georgia,Serif;
+	 text-align:center;
+	 color:#C0C0C0 ;
+	}
+
+	.subheading
+	{
+	 font-weight:normal;
+	 font-size:150%;
+	 font-family:"Crimson Text","Liberation Serif",Georgia,Serif;
+	 text-align:center;left
+	 color:#C0C0C0 ;
+	}
+	
+	.background
+	{
+	background-color:cornsilk;
+	}
+	
+	.endbuttons
+	{
+	 position:absolute;
+	 right:20px;
+	 bottom:5px;
+	 font-size:150%;
+         font-family:"Crimson Text","Liberation Serif",Georgia,Serif;
+        }
+
+  </style>
+        
+<body>
+ 	<p><br></p>
+	<div style="float:left padding:0px 0px 0px 0px;"><p style="text-align:center"><img src="http://upload.wikimedia.org/wikipedia/en/0/01/VTU_logo.png" width="80" height="90" /></div>
+	<div style="float:right;"><img src="http://indiawires.com/wp-content/uploads/2012/04/bmsit-300x290.png" /></p></div>
+	<p><br></p>
+	<p><br></p>
+	<p><br></p>
+	<p><h1 class=heading> Anomaly Detection in Networks using Naive Bayes Classifier</h1></p>
+	<p><h1 class=subheading>by</h1></p>
+	<table border=1> 
+	<p><h1 class=subheading> Parthasarathy M Alwar</h1></p>
+	<p><h1 class=subheading> Nitesh Jain</h1></p>
+	<p><h1 class=subheading> Mahidhar C</h1></p>
+	<p><h1 class=subheading> Padmavati K</h1></p>
+	<p><br></p>
+	<p><br></p>
+	<p><h1 class=subheading> Under the guidance of</h1></p>
+        <p><h1 class=subheading> Mrs. Mari Kirthima A</h1></p>
+	</table>
+  <form>
+  <input class=endbuttons type=submit value=Start>	
+  </form>
+</body>
+
+</html>
+
+
+
+
+
