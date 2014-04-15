@@ -2,4 +2,4 @@
 
 ###Requires:
  * Python 2.7
- * numpy library
+ * numpy
