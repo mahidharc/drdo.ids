@@ -1,12 +1,16 @@
 <html>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Naive Bayes Classifier</title>
-   <body>
-    		<div class="side-nav white-nav" style="border-right:solid;border-right-width: 1px;">
-                   	<div style="float:left;padding-top:10px;padding-left:0px;"><img src="images/logo.png" width="220" height="80" /></div>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<title>Naive Bayes Classifier</title>
+	
+
+<body>
+
+<div class="side-nav white-nav" style="border-right:solid;border-right-width: 1px;">
+            <div style="float:left;padding-top:10px;padding-left:0px;"><img src="images/logo.png" width="220" height="80" /></div>
 
     			<p><br/></p><p><br/></p><p><br/></p>
-    			<h3 style="font-family: sans-serif";>Menu</h3>
+    			<h3 style="font-family: sans-serif;">Menu</h3>
 					<ul style="font-family:sans-serif;">
       				<li>
         					<a href="startTesting.html" class="">
@@ -20,24 +24,24 @@
       				</li>
       				<li>
         					<a href="navigation.html" class="">
-          					<span>Navigation help</span> 
+          					<span>Navigation help</span>
         					</a>
       				</li>
       				<li>
         					<a href="index.html" class="">
           					<span>Exit</span>
         					</a>
-      				</li>	
-    				</ul>	
+      				</li>
+    				</ul>
 				<h3 style="font-family:sans-serif;">About NBC</h3>
     				<ul style="font-family:sans-serif;">
       				<li>
         					<a href="whatisit.html" class="">
-          					<span>What is it?</span> 
+          					<span>What is it?</span>
         					</a>
       				</li>
       				<li>
-        					<a href="Howitworks.html" class="">
+        					<a href="howitworks.html" class="">
           					<span>How it works</span>
         					</a>
       				</li>
@@ -51,15 +55,29 @@
           					<span>Flowcharts</span>
         					</a>
       				</li>
-				
+
 					</ul>
 
-				</div>	
+				</div>
+<div style="position:absolute;top:5%;right: 50%;">
+<h6 class="tempheadings">Code for Algorithm 1</h6>
+<table border="1" align="center" cellpadding="10" >
+<td>
+from algo2 import * <br>
 
-    				<div class="jumbotron">
-					<div style="position:absolute;right:0%;padding-right:0px;">
-						<img src="images/info.png" width="1100" height="600">
-					</div>
-				</div>    
-    </body>
+def deploy(stream, InputTraffic, awc):<br>
+  a=0.0<br>
+  for i in range(stream.windowCount):<br>
+    for j in range(0,6):<br>
+      p = determineProbability(stream.windowCount, stream)<br>
+    if ( p < stream.thresholdProbability):<br>
+      a+=1<br>
+    else:<br>
+      a-=1<br>
+    if a>=awc:<br>
+      return attack<br>
+</td>
+</table>
+</div>
+</body>
 </html>

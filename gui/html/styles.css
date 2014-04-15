@@ -3792,3 +3792,50 @@ border-length: auto;
 right: 8px;
 font-size:35px;
 }
+
+.menu
+{
+width: 50%;
+height: 40%;
+position:absolute;
+left: 50%;
+top: 19%;
+border-left: solid;
+border-left-width: 1px;
+padding-left: 10px;
+
+}
+
+
+#navigation { font-size:0.95em; width:150px; }
+ #navigation ul { margin:0; padding:0; }
+    #navigation li { list-style: none; }
+
+ul.top-level { background:#666; }
+
+ul.top-level li {
+ border-bottom: #fff solid;
+ border-top: #fff solid;
+ border-width: 1px;
+}
+#navigation a {
+ color: black;
+ cursor: pointer;
+ display:block;
+ height:35px;
+ line-height: 25px;
+ text-indent: 1px;
+ width:100%;
+}
+#navigation a:hover{
+
+}
+
+#navigation li:hover {
+ background:#f7f7f7;
+ opacity:10;
+ position: relative;
+}
+
+
+
