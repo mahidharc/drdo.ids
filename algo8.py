@@ -1,5 +1,5 @@
 from numpy import *
-
+from random import *
 class TCPstream:
   destinationIP = ""
   destinationPort = ""
@@ -9,7 +9,7 @@ class TCPstream:
   trainWindowCount = 0
   packetCounter = zeros(6)
   probabilityArray = array([])
-  thresholdProbability = 0.0
+  thresholdProbability = 1.0
 
   def __init__(self,winSize,bandC):
     self.windowSize = winSize
@@ -20,6 +20,7 @@ class TCPstream:
 def determineProbability(window, stream):
   probability = 1
   for i in range(len(window)):
+      None
     #TODO the if-elif-else flags statements from algorithm 3
   for i in range(0,6):
     probability *= stream.probabilityArray[i][stream.packetCounter[i]]

@@ -9,7 +9,7 @@ def updateProbabilities(stream, bandCount, band, observableTypeIndex):
         avgCount += stream.probabilityArray[observableTypeIndex][band[j][k]]
       avgCount += 1
       if nelband == 0:
-        nelband += 1
+        continue
       avgCount /= nelband
       for k in range(1,nelband+1):
         stream.probabilityArray[observableTypeIndex][band[j][k]] = avgCount

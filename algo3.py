@@ -27,8 +27,4 @@ def train(stream,windowSize,bandCount,flagArray):
   for i in range(0,6):
     band=determineOptimalBands(stream.probabilityArray[i],windowSize-1,bandCount)
     stream=updateProbabilities(stream,bandCount,band,i)
-
-
-
-stream = TCPstream(100,40)
-train(stream,stream.packetCounter,stream.windowSize,stream.bandCount)
+  return stream
