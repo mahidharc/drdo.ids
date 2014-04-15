@@ -3,14 +3,18 @@ from math import *
 
 
 def train(stream,windowSize,bandCount,flagArray):
+  if flagArray.size % 100 != 0:
+    remainder = flagArray.size % 100
+    flagArray = flagArray[:flagArray.size-remainder]
   windowCount = ceil(flagArray.size/windowSize)
   windowCount = int(windowCount)
   flagArray = flagArray.reshape(windowCount,windowSize)
 
-#TODO figure out how to write a proper switch statement for the 6 types of flags
   for i in range(windowCount):
     for j in range(windowSize):
-      if flagArray[i][j] == 2:
+      if flagArray[i][j] == 1:
+        stream.packetCounter[0] += 1
+      elif flagArray[i][j] == 2:
         stream.packetCounter[1] += 1
       elif flagArray[i][j] == 3:
         stream.packetCounter[2] += 1
@@ -18,6 +22,8 @@ def train(stream,windowSize,bandCount,flagArray):
         stream.packetCounter[3] += 1
       elif flagArray[i][j] == 5:
         stream.packetCounter[4] += 1
+      else:
+        stream.packetCounter[5] += 1
     for j in range(0,6):
       if stream.packetCounter[j] == 0:
         continue
