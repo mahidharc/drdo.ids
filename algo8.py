@@ -32,7 +32,6 @@ def determineProbability(window, stream, flagArray):
         stream.packetCounter[4] += 1
       else:
         stream.packetCounter[5] += 1
-    #TODO the if-elif-else flags statements from algorithm 3
   for i in range(0,6):
     #print i,stream.packetCounter[i]
     probability *= stream.probabilityArray[i][stream.packetCounter[i]]
