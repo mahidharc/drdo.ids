@@ -33,7 +33,6 @@ def determineProbability(window, stream, flagArray):
       else:
         stream.packetCounter[5] += 1
   for i in range(0,6):
-    #print i,stream.packetCounter[i]
     probability *= stream.probabilityArray[i][stream.packetCounter[i]]
   for i in range(6):
     stream.packetCounter[i]=0
