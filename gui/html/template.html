@@ -1,29 +1,5 @@
 <html>
 	<link rel="stylesheet" type="text/css" href="styles.css">
-<head>    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-google.load("visualization", '1', {packages:['corechart']});
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-  var query = new google.visualization.Query(
-      'https://docs.google.com/spreadsheet/ccc?key=0AjDdl3EdY_oSdFRzbVdOck40YnJtekt3cE5VTXJwa2c#gid=0');
-
-  query.send(handleQueryResponse);
-}
-
-function handleQueryResponse(response) {
-  if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-    return;
-  }
-
-  var data = response.getDataTable();
-  var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
-  chart.draw(data, { legend: { position: 'none' } });
-}
-</script>
-    </head>
-
     <title>Naive Bayes Classifier</title>
    <body>
     		<div class="side-nav white-nav" style="border-right:solid;border-right-width: 1px;border-bottom-color:grey;">
@@ -81,10 +57,14 @@ function handleQueryResponse(response) {
 				</div>
 
                     <div class="tempheadings" >
-                    <p>Bar Charts</p>
-                    <div id="chart_div"></div>
+                    <p>Heading</p>
+                    </div>
+
+                    <div class="definition">
+                    <p> Content goes here </p>
+
+
+                    </div>
 
     </body>
-
 </html>
-
