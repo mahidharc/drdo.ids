@@ -3807,9 +3807,9 @@ padding-left: 10px;
 }
 
 
-#navigation { font-size:0.95em; width:150px; }
+#navigation { font-size:0.95em; width:200px; }
  #navigation ul { margin:0; padding:0; }
-    #navigation li { list-style: none; }
+    #navigation li { list-style:none; }
 
 ul.top-level { background:#666; }
 
@@ -3821,21 +3821,28 @@ ul.top-level li {
 #navigation a {
  color: black;
  cursor: pointer;
- display:block;
+ display:;
  height:35px;
- line-height: 25px;
- text-indent: 1px;
- width:100%;
+ line-height:30px;
+ text-indent: 3px;
+ width:250px;
 }
 #navigation a:hover{
 
 }
 
 #navigation li:hover {
+ border-radius: 5px;
  background:#f7f7f7;
  opacity:10;
  position: relative;
 }
 
+.arrow-left {
+	width: 10px;
+	height:10px;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
 
-
+	border-right:30px solid grey;
+}

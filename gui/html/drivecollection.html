@@ -1,6 +1,8 @@
 <html>
 	<link rel="stylesheet" type="text/css" href="styles.css">
-<head>    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<head>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 google.load("visualization", '1', {packages:['corechart']});
 google.setOnLoadCallback(drawChart);
@@ -19,14 +21,15 @@ function handleQueryResponse(response) {
 
   var data = response.getDataTable();
   var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
-  chart.draw(data, { legend: { position: 'none' } });
+  chart.draw(data, { legend: { position: 'none'} });
 }
 </script>
-    </head>
 
-    <title>Naive Bayes Classifier</title>
-   <body>
-    		<div class="side-nav white-nav" style="border-right:solid;border-right-width: 1px;border-bottom-color:grey;">
+<title>Data from a Spreadsheet</title>
+</head>
+
+<body>
+<div class="side-nav white-nav" style="border-right:solid;border-right-width: 1px;border-bottom-color:grey;">
                    	<div style="float:left;padding-top:10px;padding-left:0px;"><img src="images/logo.png" width="220" height="80" /></div>
 
     			<p><br/></p><p><br/></p><p><br/></p>
@@ -67,12 +70,12 @@ function handleQueryResponse(response) {
       				</li>
       				<li>
         					<a href="design.html" class="">
-          					<span>Design</span> 
+          					<span>Design</span>
         					</a>
       				</li>
       				<li>
         					<a href="flowchart.html" class="">
-          					<span>Flowcharts</span> 
+          					<span>Flowcharts</span>
         					</a>
       				</li>
 
@@ -80,11 +83,9 @@ function handleQueryResponse(response) {
 
 				</div>
 
-                    <div class="tempheadings" >
-                    <p>Bar Charts</p>
-                    <div id="chart_div"></div>
+<span id='columnchart' style="left:40%;top:30%;"></span>
+<p style="left:47%;top:30%;font-family: sans-serif;">Graph retrieved online</p>
+    <div class="arrow-left" style="left:20%;bottom: -40%;"><a href="darpa.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</a></div>
 
-    </body>
-
+</body>
 </html>
-
