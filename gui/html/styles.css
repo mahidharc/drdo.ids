@@ -3821,7 +3821,7 @@ ul.top-level li {
 #navigation a {
  color: black;
  cursor: pointer;
- display:;
+ display:block;
  height:35px;
  line-height:30px;
  text-indent: 3px;
