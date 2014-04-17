@@ -6,6 +6,7 @@ from parser import *
 
 def determineThresholdProbability(stream, groupCount, flagArray):
   parray = zeros(groupCount)
+  seed(2)
   for n in range(groupCount):
     initialValue = randint(0,len(flagArray))
     proportionArray = array([])
