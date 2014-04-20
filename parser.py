@@ -1,7 +1,7 @@
 from numpy import *
 
-def parse():
-  flag = [line.strip() for line in open('op_flag')]
+def parse(filename):
+  flag = [line.strip() for line in open(filename)]
   flags = []
   for i in range(len(flag)):
     flags.append(int(flag[i],0))

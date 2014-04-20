@@ -21,7 +21,7 @@ def determineThresholdProbability(stream, groupCount, flagArray):
       rangeBegin = i*stream.windowSize
       for j in range(rangeBegin,rangeBegin+stream.windowSize):
         window[j%stream.windowSize] = proportionArray[j]
-      probability = determineProbability(window,streamTemp,flagArray)
+      probability = determineProbability(window,streamTemp)
       parray=append(parray,probability)
   parraySorted = sort(parray)
   result = parraySorted[int(len(parray)*(stream.thresholdProbability))+1]

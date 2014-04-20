@@ -17,23 +17,30 @@ class TCPstream:
     self.bandCount = bandC
 
 
-def determineProbability(window, stream, flagArray):
+def determineProbability(window, stream):
   probability = 1
+  pcount = zeros(6)
   for i in range(len(window)):
-      if flagArray[i] == 1:
+      if window[i] == 1:
         stream.packetCounter[0] += 1
-      elif flagArray[i] == 2:
+        pcount[0]+=1
+      elif window[i] == 2:
         stream.packetCounter[1] += 1
-      elif flagArray[i] == 3:
+        pcount[1]+=1
+      elif window[i] == 3:
         stream.packetCounter[2] += 1
-      elif flagArray[i] == 4:
+        pcount[2]+=1
+      elif window[i] == 4:
         stream.packetCounter[3] += 1
-      elif flagArray[i] == 5:
+        pcount[3]+=1
+      elif window[i] == 5:
         stream.packetCounter[4] += 1
+        pcount[4]+=1
       else:
         stream.packetCounter[5] += 1
+        pcount[5]+=1
   for i in range(0,6):
-    probability *= stream.probabilityArray[i][stream.packetCounter[i]]
-  for i in range(6):
-    stream.packetCounter[i]=0
+    if stream.probabilityArray[i][pcount[i]-1] == 0:
+      continue
+    probability *= stream.probabilityArray[i][pcount[i]-1]
   return probability
