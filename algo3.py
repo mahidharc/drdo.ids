@@ -32,9 +32,10 @@ def train(stream,windowSize,bandCount,flagArray):
         packetCounter[5] += 1
     for j in range(0,6):
       if packetCounter[j] == 0:
-        stream.probabilityArray[j][packetCounter[j]] += 0
-      else:
-        stream.probabilityArray[j][packetCounter[j]] += 1
+        continue
+      if packetCounter[j] > 99.0:
+          packetCounter[j] = 99.0
+      stream.probabilityArray[j][packetCounter[j]] += 1
       packetCounter[j] = 0
     stream.trainWindowCount += 1
   for i in range(0,6):
