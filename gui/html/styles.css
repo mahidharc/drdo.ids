@@ -182,6 +182,7 @@ ul {
 li {
   list-style: none;
 }
+
 article ul {
   padding-left: 1em;
   margin-bottom: 1em;
@@ -3845,4 +3846,7 @@ ul.top-level li {
 	border-bottom: 30px solid transparent;
 
 	border-right:30px solid grey;
+}
+ul.text li {
+list-style: disc inside none;
 }
