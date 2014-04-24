@@ -71,7 +71,18 @@
 <pre>
 <code style="font-family:'inconsolata';"> 
 
-from algo8 import * <br>from parser import *<br>def deploy(stream, awc, filename):<br>  &emsp;a=0.0<br>  &emsp;f = open('thresholdP','r')<br>  &emsp;thresholdP =float(f.read())<br>  &emsp;f.close()<br>  &emsp;inputTraffic = parse(filename)<br>  &emsp;windowCount = inputTraffic.size/stream.windowSize<br>  &emsp;attackWindowCount =0.0<br>  &emsp;normalWindowCount= 0.0<br>  &emsp;for i in range(windowCount):<br>    &emsp;&emsp;p = determineProbability(inputTraffic[i*100:(i*100)+100], stream)<br>    &emsp;&emsp;if ( p < thresholdP):<br>      &emsp;&emsp;&emsp;a+=1<br>      &emsp;&emsp;&emsp;attackWindowCount +=1<br>      &emsp;&emsp;&emsp;if a > awc:<br>        &emsp;&emsp;&emsp;&emsp;a=awc<br>      &emsp;&emsp;&emsp;print "Attack Window"<br>    &emsp;&emsp;else:<br>      &emsp;&emsp;&emsp;a-=1<br>      &emsp;&emsp;&emsp;normalWindowCount += 1<br>      &emsp;&emsp;&emsp;if a < 0 :<br>        &emsp;&emsp;&emsp;&emsp;a=0<br>      &emsp;&emsp;&emsp;print "Normal Window"<br>    &emsp;&emsp;if a>=awc:<br>      &emsp;&emsp;&emsp;print "System under Attack"<br>    &emsp;&emsp;else:<br>      &emsp;&emsp;&emsp;print "System is in Normal State"<br>  &emsp;print attackWindowCount, normalWindowCount<br>
+from algo3 import * <br>
+from algo7 import * <br>
+from numpy import *<br><br>
+
+def trainPhase(windowSize, bandCount, groupCount, filename):<br>
+  &emsp;stream = TCPstream(windowSize,bandCount)<br>
+  &emsp;flagArray = parse(filename)<br>
+  &emsp;stream = train(stream, windowSize, bandCount, flagArray)<br>
+  &emsp;#Determine threshold probability for the stream<br>
+  &emsp;stream.thresholdProbability = determineThresholdProbability(stream, groupCount, flagArray)<br>
+  &emsp;return stream<br>
+
 
  </code>
 </pre> 
