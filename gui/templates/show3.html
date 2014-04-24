@@ -1,0 +1,124 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/static/styles.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter.css" />
+		<title>Naive Bayes Classifier</title>
+		<script type="text/javascript" src="/static/custom.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/custom.css" />
+		</head>
+			<body onload="prettyPrint()">
+				<div class="side-nav white-nav" style="border-right:solid;border-right-width: 1px;">
+            	<div style="float:left;padding-top:10px;padding-left:0px;"><img src="/static/images/logo.png" width="220" height="80" /></div>
+		  			<p><br/></p><p><br/></p><p><br/></p>
+    					<h3 style="font-family: sans-serif;">Menu</h3>
+							<ul style="font-family:sans-serif;">
+								<li>
+        							<a href="/index" class="">
+          						<span>Home</span>
+        							</a>
+      						</li> 
+      						<li>
+        							<a href="/startTesting" class="">
+          						<span>Start Testing</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/results" class="">
+          						<span>Results</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/navi" class="">
+          						<span>Navigation help</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/index" class="">
+          						<span>Exit</span>
+        							</a>
+      						</li>
+    						</ul>
+						<h3 style="font-family:sans-serif;">About NBC</h3>
+    						<ul style="font-family:sans-serif;">
+      						<li>
+        							<a href="/whatisit" class="">
+          						<span>What is it?</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/howitworks" class="">
+          						<span>How it works</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/design" class="">
+          						<span>Design</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/flowchart" class="">
+          						<span>Flowcharts</span>
+        							</a>
+      						</li>
+							</ul>
+				</div>
+				<div align="center" style="position:absolute;top:5%;width: 80%;left: 20%;">
+					<h6 align="center" style="width:100%;" class="tempheadings">Code for Algorithm 3</h6>
+<table border="1" align="center" cellpadding="10" >
+<td>
+<pre class="prettyprint">
+<code style="font-family:'inconsolata';"> 
+from algo6 import *<br>
+from math import *<br>
+
+def train(stream,windowSize,bandCount,flagArray):<br>
+  &emsp;if flagArray.size % 100 != 0:<br>
+    &emsp;&emsp;remainder = flagArray.size % 100<br>
+    &emsp;&emsp;flagArray = flagArray[:flagArray.size-remainder]<br>
+  &emsp;windowCount = ceil(flagArray.size/windowSize)<br>
+  &emsp;windowCount = int(windowCount)<br>
+  &emsp;flagArray = flagArray.reshape(windowCount,windowSize)<br>
+  &emsp;packetCounter = zeros(6)<br>
+  &emsp;for i in range(windowCount):<br>
+    &emsp;&emsp;for j in range(windowSize):<br>
+      &emsp;&emsp;&emsp;if flagArray[i][j] == 1:<br>
+        &emsp;&emsp;&emsp;&emsp;stream.packetCounter[0] += 1<br>
+        &emsp;&emsp;&emsp;&emsp;packetCounter[0] += 1<br>
+      &emsp;&emsp;&emsp;elif flagArray[i][j] == 2:<br>
+        &emsp;&emsp;&emsp;&emsp;stream.packetCounter[1] += 1<br>
+        &emsp;&emsp;&emsp;&emsp;packetCounter[1] += 1<br>
+      &emsp;&emsp;&emsp;elif flagArray[i][j] == 3:<br>
+        &emsp;&emsp;&emsp;&emsp;stream.packetCounter[2] += 1<br>
+        &emsp;&emsp;&emsp;&emsp;packetCounter[2] += 1<br>
+      &emsp;&emsp;&emsp;elif flagArray[i][j] == 4:<br>
+        &emsp;&emsp;&emsp;&emsp;stream.packetCounter[3] += 1<br>
+        &emsp;&emsp;&emsp;&emsp;packetCount        er[3] += 1<br>
+      &emsp;&emsp;&emsp;elif flagArray[i][j] == 5:<br>
+        &emsp;&emsp;&emsp;&emsp;stream.packetCounter[4] += 1<br>
+        &emsp;&emsp;&emsp;&emsp;packetCounter[4] += 1<br>
+      &emsp;&emsp;&emsp;else:<br>
+        &emsp;&emsp;&emsp;&emsp;stream.packetCounter[5] += 1<br>
+        &emsp;&emsp;&emsp;&emsp;packetCounter[5] += 1<br>
+    &emsp;&emsp;for j in range(0,6):<br>
+      &emsp;&emsp;&emsp;if packetCounter[j] == 0:<br>
+        &emsp;&emsp;&emsp;&emsp;continue<br>
+      &emsp;&emsp;&emsp;if packetCounter[j] > 99.0:<br>
+        &emsp;&emsp;&emsp;&emsp;packetCounter[j] = 99.0<br>
+      &emsp;&emsp;&emsp;stream.probabilityArray[j][packetCounter[j]] += 1<br>
+      &emsp;&emsp;&emsp;packetCounter[j] = 0<br>
+    &emsp;&emsp;stream.trainWindowCount += 1<br>
+  &emsp;for i in range(0,6):<br>
+    &emsp;&emsp;band=determineOptimalBands(stream.probabilityArray[i],windowSize-1,bandCount)<br>
+    &emsp;&emsp;stream=updateProbabilities(stream,bandCount,band,i)<br>
+  &emsp;return stream<br>
+</code>
+</pre> 
+</td>
+</table>
+					<br>
+						<button style="font-family:'liberation serif';font-size:20px;border: none;border-radius: ;background-color: #E8E8E8;padding: 5px 20px;border-radius: 6px;color: #7B87A3;" type="button" onclick="window.location.href='/design';">Back
+						</button>
+					<br><br>
+				</div>		
+			</body>
+</html>

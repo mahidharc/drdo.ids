@@ -10,6 +10,7 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+.colorcode{color: red;}
 article,
 aside,
 blockquote,

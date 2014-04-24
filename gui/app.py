@@ -40,6 +40,24 @@ def results():
 @app.route('/show1')
 def show1():
     return render_template("show1.html")
+@app.route('/show2')
+def show2():
+    return render_template("show2.html")
+@app.route('/show3')
+def show3():
+    return render_template("show3.html")
+@app.route('/show5')
+def show5():
+    return render_template("show5.html")
+@app.route('/show6')
+def show6():
+    return render_template("show6.html")
+@app.route('/show7')
+def show7():
+    return render_template("show7.html")
+@app.route('/show8')
+def show8():
+    return render_template("show8.html")
 @app.route('/whatisit')
 def whatisit():
     return render_template("whatisit.html")

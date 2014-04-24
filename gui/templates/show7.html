@@ -1,0 +1,109 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/static/styles.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter.css" />
+		<title>Naive Bayes Classifier</title>
+		<script type="text/javascript" src="/static/custom.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/custom.css" />
+		</head>
+			<body onload="prettyPrint()">
+				<div class="side-nav white-nav" style="border-right:solid;border-right-width: 1px;">
+            	<div style="float:left;padding-top:10px;padding-left:0px;"><img src="/static/images/logo.png" width="220" height="80" /></div>
+		  			<p><br/></p><p><br/></p><p><br/></p>
+    					<h3 style="font-family: sans-serif;">Menu</h3>
+							<ul style="font-family:sans-serif;">
+								<li>
+        							<a href="/index" class="">
+          						<span>Home</span>
+        							</a>
+      						</li> 
+      						<li>
+        							<a href="/startTesting" class="">
+          						<span>Start Testing</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/results" class="">
+          						<span>Results</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/navi" class="">
+          						<span>Navigation help</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/index" class="">
+          						<span>Exit</span>
+        							</a>
+      						</li>
+    						</ul>
+						<h3 style="font-family:sans-serif;">About NBC</h3>
+    						<ul style="font-family:sans-serif;">
+      						<li>
+        							<a href="/whatisit" class="">
+          						<span>What is it?</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/howitworks" class="">
+          						<span>How it works</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/design" class="">
+          						<span>Design</span>
+        							</a>
+      						</li>
+      						<li>
+        							<a href="/flowchart" class="">
+          						<span>Flowcharts</span>
+        							</a>
+      						</li>
+							</ul>
+				</div>
+				<div align="center" style="position:absolute;top:5%;width: 80%;left: 20%;">
+					<h6 align="center" style="width:100%;" class="tempheadings">Code for Algorithm 6</h6>
+<table border="1" align="center" cellpadding="10" >
+<td>
+<pre class="prettyprint">
+<code style="font-family:'inconsolata';"> 
+from algo8 import *<br>
+from algo3 import *<br>
+from random import *<br>
+from numpy import *<br>
+from parser import *<br>
+
+def determineThresholdProbability(stream, groupCount, flagArray):<br>
+  &emsp;parray = zeros(groupCount)<br>
+  &emsp;seed(2)<br>
+  &emsp;for n in range(groupCount):<br>
+    &emsp;&emsp;initialValue = randint(0,len(flagArray))<br>
+    &emsp;&emsp;proportionArray = array([])<br>
+    &emsp;&emsp;groupRange = round(len(flagArray)/groupCount)<br>
+    &emsp;&emsp;for i in roll(flagArray,flagArray.size-initialValue)[:groupRange]:<br>
+      &emsp;&emsp;&emsp;proportionArray=append(proportionArray,i)<br>
+    &emsp;&emsp;trainingArray = fromstring(flagArray.tostring().replace(proportionArray.tostring(), ""), dtype=flagArray.dtype)<br>
+    &emsp;&emsp;streamTemp = train(stream, stream.windowSize, stream.bandCount, trainingArray)<br>
+    &emsp;&emsp;windowCount = len(proportionArray)/stream.windowSize<br>
+    &emsp;&emsp;window = zeros(stream.windowSize)<br>
+    &emsp;&emsp;for i in range(windowCount):<br>
+      &emsp;&emsp;&emsp;rangeBegin = i*stream.windowSize<br>
+      &emsp;&emsp;&emsp;for j in range(rangeBegin,rangeBegin+stream.windowSize):<br>
+        &emsp;&emsp;&emsp;&emsp;window[j%stream.windowSize] = proportionArray[j]<br>
+      &emsp;&emsp;&emsp;probability = determineProbability(window,streamTemp)<br>
+      &emsp;&emsp;&emsp;parray=append(parray,probability)<br>
+  &emsp;parraySorted = sort(parray)<br>
+  &emsp;result = parraySorted[int(len(parray)*(stream.thresholdProbability))+1]<br>
+  &emsp;return result<br>
+</code>
+</pre>
+</td>
+</table>
+					<br>
+						<button style="font-family:'liberation serif';font-size:20px;border: none;border-radius: ;background-color: #E8E8E8;padding: 5px 20px;border-radius: 6px;color: #7B87A3;" type="button" onclick="window.location.href='/design';">Back
+						</button>
+					<br><br>
+				</div>		
+			</body>
+</html>
