@@ -10,6 +10,12 @@ def root():
 @app.route('/index')
 def index():
     return render_template("index.html")
+@app.route('/startTesting')
+def startTesting():
+    return render_template("startTesting.html")
+@app.route('/darpa')
+def darpa():
+    return render_template("darpa.html")
 @app.route('/design')
 def design():
     return render_template("design.html")
