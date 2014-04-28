@@ -66,12 +66,7 @@
                     </div>
 
                     <div class="definition">
-                    <p style="font-family: sans-serif;">You have chosen DARPA dataset to be run against the Naive Bayes Classifier. Please wait for a few seconds. You will be given the results of the test after processing of dataset.</p>
-                    <br/>
-                    <p style="font-family: sans-serif;">View the progress below:</p>
-
-                    <meter value="0.5"></meter>
-                    <p><br/></p>
+                    
                     <p><u>Results Obtained:</u></p>
                     <table border="1" style="font-family: sans-serif;">
                     <tr><td colspan="2"> Training Results</td></tr>
@@ -95,7 +90,7 @@
                          <td>{{ train.thresholdProbability }}</td>
 
                     </tr>
-                    <tr><td colspan="2">Deployment results</td></tr>
+                    <tr><td colspan="2"><b>Deployment results</b></td></tr>
                     <tr style="font-weight:lighter;">
                          <td>Packets Processed</td>
                          <td>{{ test.trainWindowCount * 100 }}</td>
