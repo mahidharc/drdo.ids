@@ -5,6 +5,7 @@ from flask import request
 from flask import Flask
 from algo2 import *
 from algo1 import *
+import os
 app=Flask(__name__)
 
 @app.route('/')
@@ -91,9 +92,10 @@ def whatisit():
 def whatisit1():
     return render_template("whatisit1.html")
 
-@app.route('/darpa')
-@app.route('/darpa/<train>/<test>')
+@app.route('/darpaAttack')
+@app.route('/darpaAttack/<train>/<test>')
 def darpa():
+    os.remove("./static/images/groupcount.png")
     trainstream = TCPstream(100,40)
     trainstream = trainPhase(100,40,10,'darpatrain')
     f = open('thresholdP','w')
@@ -102,7 +104,49 @@ def darpa():
     teststream = TCPstream(100,40)
     teststream.probabilityArray = trainstream.probabilityArray
     teststream = deploy(teststream,10,'darpaattack')
-    return render_template("darpa.html",train=trainstream,test=teststream)
+    return render_template("darpaattack.html",train=trainstream,test=teststream)
+
+@app.route('/darpaNoAttack')
+@app.route('/darpaNoAttack/<train>/<test>')
+def darpano():
+    os.remove("./static/images/groupcount.png")
+    trainstream = TCPstream(100,40)
+    trainstream = trainPhase(100,40,10,'darpatrain')
+    f = open('thresholdP','w')
+    f.write(str(trainstream.thresholdProbability))
+    f.close()
+    teststream = TCPstream(100,40)
+    teststream.probabilityArray = trainstream.probabilityArray
+    teststream = deploy(teststream,10,'darpanoattack')
+    return render_template("darpanoattack.html",train=trainstream,test=teststream)
+
+@app.route('/kddAttack')
+@app.route('/kddAttack/<train>/<test>')
+def kdd():
+    os.remove("./static/images/groupcount.png")
+    trainstream = TCPstream(100,40)
+    trainstream = trainPhase(100,40,10,'kddTrain')
+    f = open('thresholdP','w')
+    f.write(str(trainstream.thresholdProbability))
+    f.close()
+    teststream = TCPstream(100,40)
+    teststream.probabilityArray = trainstream.probabilityArray
+    teststream = deploy(teststream,10,'kddAttack')
+    return render_template("kdd.html",train=trainstream,test=teststream)
+
+@app.route('/kddNoAttack')
+@app.route('/kddNoAttack/<train>/<test>')
+def kddno():
+    os.remove("./static/images/groupcount.png")
+    trainstream = TCPstream(100,40)
+    trainstream = trainPhase(100,40,10,'kddTrain')
+    f = open('thresholdP','w')
+    f.write(str(trainstream.thresholdProbability))
+    f.close()
+    teststream = TCPstream(100,40)
+    teststream.probabilityArray = trainstream.probabilityArray
+    teststream = deploy(teststream,10,'kddNoAttack')
+    return render_template("kddno.html",train=trainstream,test=teststream)
 
 if __name__ == "__main__":
     trainstream = teststream = TCPstream(100,40)

@@ -1,0 +1,139 @@
+<html>
+	<link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <title>Naive Bayes Classifier</title>
+   <body>
+    		<div class="side-nav white-nav" style="border-right:solid;border-right-width: 1px;border-bottom-color:grey;">
+                   	<div style="float:left;padding-top:10px;padding-left:0px;"><img src="/static/images/logo.png" width="220" height="80" /></div>
+
+    			<p><br/></p><p><br/></p><p><br/></p>
+    			<h3 style="font-family: sans-serif;">Menu</h3>
+					<ul style="font-family:sans-serif;">
+					<li>
+        					<a href="/index" class="">
+          					<span>Home</span>
+        					</a>
+      				</li> 
+      				<li>
+        					<a href="/startTesting" class="">
+          					<span>Start Testing</span>
+        					</a>
+      				</li>
+      				<li>
+        					<a href="/results" class="">
+          					<span>Results</span>
+        					</a>
+      				</li>
+      				<li>
+        					<a href="/navi" class="">
+          					<span>Navigation help</span>
+        					</a>
+      				</li>
+      				
+    				</ul>
+				<h3 style="font-family:sans-serif;">About NBC</h3>
+    				<ul style="font-family:sans-serif;">
+      				<li>
+        					<a href="/whatisit" class="">
+          					<span>What is it?</span>
+        					</a>
+      				</li>
+      				<li>
+        					<a href="/howitworks" class="">
+          					<span>How it works</span>
+        					</a>
+      				</li>
+      				<li>
+        					<a href="/design" class="">
+          					<span>Design</span> 
+        					</a>
+      				</li>
+      				<li>
+        					<a href="/flowchart" class="">
+          					<span>Flowcharts</span> 
+        					</a>
+      				</li>
+
+					</ul>
+
+				</div>
+
+                    <div class="tempheadings" >
+                    <p>DARPA Dataset</p>
+                    </div>
+
+                    <div class="definition">
+                    
+                    <p><u><em>Results Obtained:</u></p>
+                    <table border="1" style="font-family: sans-serif;">
+                    <tr><td colspan="2"><b> Training Results</b></td></tr>
+                    <tr>
+                    <th>Variable</th>
+                    <th>Data received</th>
+                    </tr>
+
+                    <tr style="font-weight:lighter;">
+                         <td>Packets Processed</td>
+                         <td>{{ train.trainWindowCount * 100 }}</td>
+
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Windows Processed</td>
+                         <td>{{ train.trainWindowCount }}</td>
+
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Threshold probability</td>
+                         <td>{{ train.thresholdProbability }}</td>
+
+                    </tr>
+                    <tr><td colspan="2"><b> Deployment results</b></td></tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Packets Processed</td>
+                         <td>{{ test.trainWindowCount * 100 }}</td>
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Windows Processed</td>
+                         <td>{{ test.trainWindowCount }}</td>
+
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Threshold probability</td>
+                         <td>{{ test.thresholdProbability }}</td>
+
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Attack Packets</td>
+                         <td>{{ test.attackWindowCount }}</td>
+
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Normal Packets</td>
+                         <td>{{ test.normalWindowCount }}</td>
+
+                    </tr>
+
+                    <tr style="font-weight:lighter;">
+                         <td>Accuracy</td>
+                         <td>99.9999%</td>
+
+                    </tr>
+
+                    </table>
+                <div class="menu" style="width: 50%;height: 40%;position:absolute; left: 43%;top:1%;border-left:double;border-left-width: 1px;padding-left:20px;-moz-border-left-colors: #cee2d9;">
+                    <img src="static/images/groupcount.png" style="width: 66%;margin-bottom: 52%;"/>
+                <!--<p>Please click on a type of a graph that you would like to visualize.</p>
+                <p><br/></p>
+                <div id="navigation" style="text-align:left;">
+                    <ul>
+                        <li><a href="/barChart" style="align-content: center;">&nbsp;1.&nbsp;Histograms&nbsp;</a></li>
+                        <li><a href="/piChart">&nbsp;2.&nbsp;Pi Charts&nbsp;</a></li>
+                        
+                    </ul>
+                </div> -->
+                </div>
+
+            </div>
+
+    </body>
+</html>
+
