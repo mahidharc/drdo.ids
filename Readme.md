@@ -7,3 +7,4 @@
 * Python 2.7
 * numpy
 * flask
+* matplotlib
