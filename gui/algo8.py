@@ -10,6 +10,8 @@ class TCPstream:
   packetCounter = zeros(6)
   probabilityArray = array([])
   thresholdProbability = 0.088
+  attackWindowCount = 0
+  normalWindowCount = 0
 
   def __init__(self,winSize,bandC):
     self.windowSize = winSize

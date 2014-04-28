@@ -74,6 +74,7 @@
                     <p><br/></p>
                     <p><u>Results Obtained:</u></p>
                     <table border="1" style="font-family: sans-serif;">
+                    <tr><td colspan="2"> Training Results</td></tr>
                     <tr>
                     <th>Variable</th>
                     <th>Data received</th>
@@ -81,37 +82,42 @@
 
                     <tr style="font-weight:lighter;">
                          <td>Packets Processed</td>
-                         <td>1000</td>
+                         <td>{{ train.trainWindowCount * 100 }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Windows Processed</td>
-                         <td>1000</td>
-
-                    </tr>
-                    <tr style="font-weight:lighter;">
-                         <td>Probability sum</td>
-                         <td>1.000</td>
+                         <td>{{ train.trainWindowCount }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Threshold probability</td>
-                         <td>1.000</td>
+                         <td>{{ train.thresholdProbability }}</td>
+
+                    </tr>
+                    <tr><td colspan="2">Deployment results</td></tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Packets Processed</td>
+                         <td>{{ test.trainWindowCount * 100 }}</td>
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Windows Processed</td>
+                         <td>{{ test.trainWindowCount }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
-                         <td>Error proportion</td>
-                         <td>0.00000</td>
+                         <td>Threshold probability</td>
+                         <td>{{ test.thresholdProbability }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Attack Packets</td>
-                         <td>2000</td>
+                         <td>{{ test.attackWindowCount }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Normal Packets</td>
-                         <td>1000</td>
+                         <td>{{ test.normalWindowCount }}</td>
 
                     </tr>
 
