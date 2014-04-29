@@ -150,6 +150,7 @@ def kddno():
 
 if __name__ == "__main__":
     trainstream = teststream = TCPstream(100,40)
+    plt.savefig("static/images/groupcount.png")
     app.run()
 
 """ Template for each page
