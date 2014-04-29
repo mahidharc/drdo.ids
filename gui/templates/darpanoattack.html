@@ -102,19 +102,19 @@
 
                     </tr>
                     <tr style="font-weight:lighter;">
-                         <td>Attack Packets</td>
+                         <td>Attack Windows</td>
                          <td>{{ test.attackWindowCount }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
-                         <td>Normal Packets</td>
+                         <td>Normal Windows</td>
                          <td>{{ test.normalWindowCount }}</td>
 
                     </tr>
 
                     <tr style="font-weight:lighter;">
                          <td>Accuracy</td>
-                         <td>99.9999%</td>
+                         <td>{{ (test.normalWindowCount / 614) * 100 }}</td>
 
                     </tr>
 
