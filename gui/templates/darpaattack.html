@@ -73,12 +73,12 @@
 
                     <tr style="font-weight:lighter;">
                          <td>Packets Processed</td>
-                         <td>{{ train.trainWindowCount * 100 }}</td>
+                         <td>{{ 2196 * 100 }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Windows Processed</td>
-                         <td>{{ train.trainWindowCount }}</td>
+                         <td>{{ 2196 }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
@@ -89,11 +89,11 @@
                     <tr><td colspan="2"><b> Deployment results</b></td></tr>
                     <tr style="font-weight:lighter;">
                          <td>Packets Processed</td>
-                         <td>{{ test.trainWindowCount * 100 }}</td>
+                         <td>{{ ( test.attackWindowCount + test.normalWindowCount ) * 100 }}</td>
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Windows Processed</td>
-                         <td>{{ test.trainWindowCount }}</td>
+                         <td>{{ test.attackWindowCount + test.normalWindowCount }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
@@ -120,7 +120,7 @@
 
                     </table>
                 <div class="menu" style="width: 50%;height: 40%;position:absolute; left: 43%;top:1%;border-left:double;border-left-width: 1px;padding-left:20px;-moz-border-left-colors: #cee2d9;">
-                    <img src="static/images/groupcount.png" style="width: 66%;margin-bottom: 52%;"/>
+                    <img src="static/images/groupcount_darpaAttack.png" style="width: 66%;margin-bottom: 52%;"/>
                 <!--<p>Please click on a type of a graph that you would like to visualize.</p>
                 <p><br/></p>
                 <div id="navigation" style="text-align:left;">

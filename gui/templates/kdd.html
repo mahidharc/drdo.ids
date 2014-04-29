@@ -72,37 +72,42 @@
 
                     <tr style="font-weight:lighter;">
                          <td>Packets Processed</td>
-                         <td>1000</td>
+                         <td>{{ 2169 * 100 }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Windows Processed</td>
-                         <td>1000</td>
-
-                    </tr>
-                    <tr style="font-weight:lighter;">
-                         <td>Probability sum</td>
-                         <td>1.000</td>
+                         <td>{{ 2169 }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Threshold probability</td>
-                         <td>1.000</td>
+                         <td>{{ train.thresholdProbability }}</td>
+
+                    </tr>
+                    <tr><td colspan="2"><b> Deployment results</b></td></tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Packets Processed</td>
+                         <td>{{ ( test.attackWindowCount + test.normalWindowCount ) * 100 }}</td>
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td>Windows Processed</td>
+                         <td>{{ ( test.attackWindowCount + test.normalWindowCount ) }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
-                         <td>Error proportion</td>
-                         <td>0.00000</td>
+                         <td>Threshold probability</td>
+                         <td>{{ test.thresholdProbability }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Attack Packets</td>
-                         <td>2000</td>
+                         <td>{{ test.attackWindowCount }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
                          <td>Normal Packets</td>
-                         <td>1000</td>
+                         <td>{{ test.normalWindowCount }}</td>
 
                     </tr>
 
@@ -114,7 +119,7 @@
 
                     </table>
                 <div class="menu" style="width: 50%;height: 40%;position:absolute; left: 50%;top:22%;border-left:double;border-left-width: 1px;padding-left:20px;-moz-border-left-colors: #cee2d9;">
-                    <img src="static/images/groupcount.png" style="width: 66%;margin-bottom: 52%;"/>
+                    <img src="static/images/groupcount_kddAttack.png" style="width: 66%;margin-bottom: 52%;"/>
                 <!--<p>Please click on a type of a graph that you would like to visualize.</p>
                 <p><br/></p>
                 <div id="navigation" style="text-align:left;">

@@ -36,10 +36,12 @@ def parse(filename):
   for i in range(6):
     if packetCount[i] == 0:
       packetCount[i] =1
-  plt.barh(y_pos, packetCount, align='center', alpha=0.0)
+  """
+  plt.barh(y_pos, packetCount, align='center', alpha=0.4)
   plt.yticks(y_pos,groups)
   plt.xlabel("Count")
   plt.ylabel("Groups")
   plt.title("Number of packets in various groups")
-  plt.savefig("static/images/groupcount.png")
+  plt.savefig("static/images/groupcount_kddAttack.png")
+  """
   return flagArray

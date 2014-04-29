@@ -95,7 +95,6 @@ def whatisit1():
 @app.route('/darpaAttack')
 @app.route('/darpaAttack/<train>/<test>')
 def darpa():
-    os.remove("./static/images/groupcount.png")
     trainstream = TCPstream(100,40)
     trainstream = trainPhase(100,40,10,'darpatrain')
     f = open('thresholdP','w')
@@ -109,7 +108,6 @@ def darpa():
 @app.route('/darpaNoAttack')
 @app.route('/darpaNoAttack/<train>/<test>')
 def darpano():
-    os.remove("./static/images/groupcount.png")
     trainstream = TCPstream(100,40)
     trainstream = trainPhase(100,40,10,'darpatrain')
     f = open('thresholdP','w')
@@ -123,7 +121,6 @@ def darpano():
 @app.route('/kddAttack')
 @app.route('/kddAttack/<train>/<test>')
 def kdd():
-    os.remove("./static/images/groupcount.png")
     trainstream = TCPstream(100,40)
     trainstream = trainPhase(100,40,10,'kddTrain')
     f = open('thresholdP','w')
@@ -137,7 +134,6 @@ def kdd():
 @app.route('/kddNoAttack')
 @app.route('/kddNoAttack/<train>/<test>')
 def kddno():
-    os.remove("./static/images/groupcount.png")
     trainstream = TCPstream(100,40)
     trainstream = trainPhase(100,40,10,'kddTrain')
     f = open('thresholdP','w')
@@ -150,7 +146,6 @@ def kddno():
 
 if __name__ == "__main__":
     trainstream = teststream = TCPstream(100,40)
-    plt.savefig("static/images/groupcount.png")
     app.run()
 
 """ Template for each page
