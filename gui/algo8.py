@@ -9,14 +9,15 @@ class TCPstream:
   trainWindowCount = 0
   packetCounter = zeros(6)
   probabilityArray = array([])
-  thresholdProbability = 0.088
+  thresholdProbability = 0.0
   attackWindowCount = 0
   normalWindowCount = 0
 
-  def __init__(self,winSize,bandC):
+  def __init__(self,winSize,bandC,t):
     self.windowSize = winSize
     self.probabilityArray = zeros(self.windowSize*6).reshape(6,self.windowSize)
     self.bandCount = bandC
+    self.thresholdProbability = t
 
 
 def determineProbability(window, stream):

@@ -95,12 +95,12 @@ def whatisit1():
 @app.route('/darpaAttack')
 @app.route('/darpaAttack/<train>/<test>')
 def darpa():
-    trainstream = TCPstream(100,40)
-    trainstream = trainPhase(100,40,10,'darpatrain')
+    trainstream = TCPstream(100,40,0.088)
+    trainstream = trainPhase(100,40,10,'darpatrain',0.088)
     f = open('thresholdP','w')
     f.write(str(trainstream.thresholdProbability))
     f.close()
-    teststream = TCPstream(100,40)
+    teststream = TCPstream(100,40,0.088)
     teststream.probabilityArray = trainstream.probabilityArray
     teststream = deploy(teststream,10,'darpaattack')
     return render_template("darpaattack.html",train=trainstream,test=teststream)
@@ -108,12 +108,12 @@ def darpa():
 @app.route('/darpaNoAttack')
 @app.route('/darpaNoAttack/<train>/<test>')
 def darpano():
-    trainstream = TCPstream(100,40)
-    trainstream = trainPhase(100,40,10,'darpatrain')
+    trainstream = TCPstream(100,40,0.088)
+    trainstream = trainPhase(100,40,10,'darpatrain',0.088)
     f = open('thresholdP','w')
     f.write(str(trainstream.thresholdProbability))
     f.close()
-    teststream = TCPstream(100,40)
+    teststream = TCPstream(100,40,0.088)
     teststream.probabilityArray = trainstream.probabilityArray
     teststream = deploy(teststream,10,'darpanoattack')
     return render_template("darpanoattack.html",train=trainstream,test=teststream)
@@ -121,12 +121,12 @@ def darpano():
 @app.route('/kddAttack')
 @app.route('/kddAttack/<train>/<test>')
 def kdd():
-    trainstream = TCPstream(100,40)
-    trainstream = trainPhase(100,40,10,'kddTrain')
+    trainstream = TCPstream(100,40,0.111)
+    trainstream = trainPhase(100,40,10,'kddTrain',0.111)
     f = open('thresholdP','w')
     f.write(str(trainstream.thresholdProbability))
     f.close()
-    teststream = TCPstream(100,40)
+    teststream = TCPstream(100,40,0.111)
     teststream.probabilityArray = trainstream.probabilityArray
     teststream = deploy(teststream,10,'kddAttack')
     return render_template("kdd.html",train=trainstream,test=teststream)
@@ -134,18 +134,18 @@ def kdd():
 @app.route('/kddNoAttack')
 @app.route('/kddNoAttack/<train>/<test>')
 def kddno():
-    trainstream = TCPstream(100,40)
-    trainstream = trainPhase(100,40,10,'kddTrain')
+    trainstream = TCPstream(100,40,0.088)
+    trainstream = trainPhase(100,40,10,'kddTrain',0.088)
     f = open('thresholdP','w')
     f.write(str(trainstream.thresholdProbability))
     f.close()
-    teststream = TCPstream(100,40)
+    teststream = TCPstream(100,40,0.088)
     teststream.probabilityArray = trainstream.probabilityArray
     teststream = deploy(teststream,10,'kddNoAttack')
     return render_template("kddno.html",train=trainstream,test=teststream)
 
 if __name__ == "__main__":
-    trainstream = teststream = TCPstream(100,40)
+    trainstream = teststream = TCPstream(100,40,0.0)
     app.run()
 
 """ Template for each page
