@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="definition">
-                    <p style="font-family: sans-serif;">You have chosen Darpa dataset to be run against the Naive Bayes Classifier.</p>
+                    <p style="font-family: sans-serif;">You have chosen Darpa dataset to be run against the NBC.</p>
                     
                     <p><u><em>Results Obtained:</u></p>
                     <table border="1" style="font-family: sans-serif;">
@@ -93,12 +93,20 @@
 
                     </tr>
                     <tr style="font-weight:lighter;">
-                         <td>Attack Windows</td>
+                        <td> Actual Normal Windows
+                        <td> 614
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                        <td> Actual Attack Windows
+                        <td> 0
+                    </tr>
+                    <tr style="font-weight:lighter;">
+                         <td> Detected Attack Windows</td>
                          <td>{{ test.attackWindowCount }}</td>
 
                     </tr>
                     <tr style="font-weight:lighter;">
-                         <td>Normal Windows</td>
+                         <td>Detected Normal Windows </td>
                          <td>{{ test.normalWindowCount }}</td>
 
                     </tr>
@@ -110,19 +118,9 @@
                     </tr>
 
                     </table>
-                    <button style="position: absolute;left: 14%;top: 61%;border: none;border-radius: ;background-color: #E8E8E8;padding: 5px 20px;border-radius: 6px;color: #7B87A3;" type="button" onclick="window.location.href='/startTesting';">Back
-        				  </button>
-                <div class="menu" style="width: 50%;height: 40%;position:absolute; left: 43%;top:5%;border-left:double;border-left-width: 1px;padding-left:20px;-moz-border-left-colors: #cee2d9;">
-                    <img src="static/images/groupcount_darpaNoAttack.png" style="width: 66%;margin-bottom: 52%;"/>
-                <!--<p>Please click on a type of a graph that you would like to visualize.</p>
-                <p><br/></p>
-                <div id="navigation" style="text-align:left;">
-                    <ul>
-                        <li><a href="/barChart" style="align-content: center;">&nbsp;1.&nbsp;Histograms&nbsp;</a></li>
-                        <li><a href="/piChart">&nbsp;2.&nbsp;Pi Charts&nbsp;</a></li>
-                        
-                    </ul>
-                </div> -->
+                <div class="menu" style="width: 50%;height: 75%;position:absolute; left: 43%;top:1%;border-left:double;border-left-width: 1px;padding-left:20px;-moz-border-left-colors: #cee2d9;">
+                    <img src="static/images/groupcount_darpaNoAttack.png" style="width: 76%"/>
+                    <img src="static/images/state_darpaNoAttack.png" style="width: 76%" />
                 </div>
 
             </div>

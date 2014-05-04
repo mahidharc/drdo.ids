@@ -12,6 +12,8 @@ class TCPstream:
   thresholdProbability = 0.0
   attackWindowCount = 0
   normalWindowCount = 0
+  stateArr = []
+  winNoArr =[]
 
   def __init__(self,winSize,bandC,t):
     self.windowSize = winSize

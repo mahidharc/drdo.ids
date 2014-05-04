@@ -31,12 +31,12 @@ def parse(filename):
     else:
       flagArray = append(flagArray,6)
       packetCount[5] += 1
+  """
   groups = ("T1" , "T2" , "T3" , "T4" , "T5" , "T6" )
   y_pos = arange(len(groups))
   for i in range(6):
     if packetCount[i] == 0:
       packetCount[i] =1
-  """
   plt.barh(y_pos, packetCount, align='center', alpha=0.4)
   plt.yticks(y_pos,groups)
   plt.xlabel("Count")

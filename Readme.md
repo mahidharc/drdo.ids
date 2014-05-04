@@ -1,8 +1,8 @@
-##Naive Bayes Classifier for network anomaly detection
+###Naive Bayes Classifier for network anomaly detection
 
 ---
 
-###Requires:
+####Requires:
 
 * Python 2.7
 * numpy
