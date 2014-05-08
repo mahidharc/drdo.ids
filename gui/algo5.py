@@ -24,11 +24,10 @@ def determineOptimalBands(arrayA,windowSize,bandCount):
   #Store that first bandCount - 1 sorted jumps
   for i in range(bandCount-1):
     sortedJumps[i] = temp[i]
-  #
   jumpCountPos = argsort(jumpCount)
   sortedJumpsPos = searchsorted(jumpCount[jumpCountPos], sortedJumps)
   indexArray = jumpCountPos[sortedJumpsPos]
-
+  # Group the events into bands
   for i in range(bandCount-1):
     upper = indexArray[i]
     nelements = upper - lower + 1
@@ -42,8 +41,9 @@ def determineOptimalBands(arrayA,windowSize,bandCount):
       band[i][k] = x
       k += 1
     lower = upper + 1
-
+  #Reverse the arrayAPos
   arrayAPosReversed = arrayAPos[::-1]
+  #Store the remaining elements of Array A
   for x in range(0,windowSize+1-bandCount):
     band[i+1][x] = arrayAPosReversed[bandCount]
     bandCount += 1
