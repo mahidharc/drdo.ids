@@ -1,15 +1,17 @@
 from algo2 import *
 from algo1 import *
 
-t = 0.111
+t = 0.088
 trainstream = TCPstream(100,40,t)
-trainstream = trainPhase(100,40,10,"kddTrain",t)
+trainstream = trainPhase(100,40,10,"darpatrain",t)
 f = open('thresholdP','w')
 f.write(str(trainstream.thresholdProbability))
 f.close()
 teststream = TCPstream(100,40,t)
 teststream.probabilityArray = trainstream.probabilityArray
 teststream = deploy(teststream,10,'kddNoAttack')
+print teststream.attackWindowCount
+print teststream.normalWindowCount
 
 """
 data = teststream.stateArr
