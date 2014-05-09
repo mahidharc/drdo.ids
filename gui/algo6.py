@@ -21,7 +21,7 @@ def updateProbabilities(stream, bandCount, band, observableTypeIndex):
       #Determina the avgerage Count
       avgCount /= nelband
       for k in range(1,nelband):
-      #Store  avg count in stream for later computation
+      #Store  average count in stream for later computation
         stream.probabilityArray[observableTypeIndex][band[j][k]] = avgCount
       #Compute probability of the particular group and band and store it in the stream
       for k in range(1,nelband):
