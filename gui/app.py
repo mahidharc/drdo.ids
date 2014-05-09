@@ -143,6 +143,32 @@ def kddno():
     teststream = deploy(teststream,10,'kddNoAttack')
     return render_template("kddno.html",train=trainstream,test=teststream)
 
+@app.route('/auckNoAttack')
+@app.route('/auckNoAttack/<train>/<test>')
+def auk():
+    trainstream = TCPstream(100,40,0.088)
+    trainstream = trainPhase(100,40,10,'aucklandTrain',0.088)
+    f = open('thresholdP','w')
+    f.write(str(trainstream.thresholdProbability))
+    f.close()
+    teststream = TCPstream(100,40,0.088)
+    teststream.probabilityArray = trainstream.probabilityArray
+    teststream = deploy(teststream,10,'aucklandNoAttack')
+    return render_template("aucknoattack.html",train=trainstream,test=teststream)
+
+@app.route('/auckAttack')
+@app.route('/auckAttack/<train>/<test>')
+def aukno():
+    trainstream = TCPstream(100,40,0.091)
+    trainstream = trainPhase(100,40,10,'aucklandTrain',0.091)
+    f = open('thresholdP','w')
+    f.write(str(trainstream.thresholdProbability))
+    f.close()
+    teststream = TCPstream(100,40,0.091)
+    teststream.probabilityArray = trainstream.probabilityArray
+    teststream = deploy(teststream,10,'aucklandAttack')
+    return render_template("auckattack.html",train=trainstream,test=teststream)
+
 if __name__ == "__main__":
     trainstream = teststream = TCPstream(100,40,0.0)
     app.run()
