@@ -1,18 +1,13 @@
-###################################################################################################################################
 
-### "A system approach to network modeling for DDoS detection using a Naìve Bayesian classifier" by Mr. Vijayasarathy, 
-###  Mr. S V Raghavan and Mr. Ravindran B, published in  "Communication Systems and Networks (COMSNETS), 2011" 
-###  with E-ISBN: 978-1-4244-8951-0 and Print ISBN: 978-1-4244-8952-7
+ "A system approach to network modeling for DDoS detection using a Naìve Bayesian classifier" by Mr. Vijayasarathy, 
+  Mr. S V Raghavan and Mr. Ravindran B, published in  "Communication Systems and Networks (COMSNETS), 2011" 
+  with E-ISBN: 978-1-4244-8951-0 and Print ISBN: 978-1-4244-8952-7
 
-###  This work was implemented by Mahidhar Chellamani, Nitesh A Jain, Parthasarathy M Alwar and Padmavathi K as a
-###  project in collaboration with BMS Institute of Technology and Centre for Artificial Intelligence (CAIR), DRDO, Bangalore.
+  This work was implemented by Mahidhar Chellamani, Nitesh A Jain, Parthasarathy M Alwar and Padmavathi K as a
+  project in collaboration with BMS Institute of Technology and Centre for Artificial Intelligence (CAIR), DRDO, Bangalore.
 
-#################################################################################################################################### 
-
-
-
-####################################################################################################################################
-I. Files Used in the Package
+--
+## I. Files Used in the Package
 
 algo1.py --------------> "Deploy" function. This module tests the input traffic and computes if a window is an attack window or not.
 algo2.py --------------> "trainPhase" function. This module initiates training.
@@ -32,12 +27,9 @@ main.py ---------------> This the main program. This is to be executed first to 
 parser.py -------------> Takes tcpdump filenames and gives the output flag array
 thresholdP ------------> Stores the Threshold Probability generated 
 
-####################################################################################################################################
+--
 
-
-
-###################################################################################################################################
-II. Hardware Requirements : 
+## II. Hardware Requirements : 
 
 Processor: Any x86 or x86_64 based processor
 Random Access Memory (RAM): 4GB or above
@@ -45,12 +37,9 @@ Random Access Memory (RAM): 4GB or above
 
 TO BE NOTED:  With the an Intel i5 3230M @ 2.6GHz and 8GB of RAM we have achieved an execution time for largest data file as 19m 0.011s
 
-###################################################################################################################################
+--
 
-
-
-###################################################################################################################################
-III. Software Requirements: 
+## III. Software Requirements: 
 * Operating System: Any GNU/Linux based OS. It has been tested on Debian, Manjaro and Ubuntu
 * Python 2.7.6
 * NumPy 1.8.1
@@ -60,12 +49,9 @@ III. Software Requirements:
 TO BE NOTED: We have tested the code found in this package on Manjaro, Ubuntu and Debian. We do not claim the same results when tested 
 on a different specification not conforming to the above configuration.
 
-####################################################################################################################################
+--
 
-
-
-####################################################################################################################################
-IV. Details of the dataset used:
+## IV. Details of the dataset used:
 
 1. DARPA 1999 Week 1 All files - To generate the training, testing and the attack data.
 2. DARPA 1999 Week 3 All files - To generate the training, testing and the attack data.
@@ -73,12 +59,9 @@ IV. Details of the dataset used:
 
 All of these datasets can be found on http://www.ll.mit.edu/ 
 
-####################################################################################################################################
+--
 
-
-
-####################################################################################################################################
-V. Information about the Package:
+## V. Information about the Package:
 
 * It is to be noted that the project was conducted with strict regard to only TCP. UDP support was not defined in the scope of this package.
 
@@ -93,15 +76,14 @@ specifications limited by Python.
 * The attack files have been hard coded into the main.py file. If a different input file (attack, training or no attack) has to be inserted, the main.py file 
 has to be modified with the required input file. 
 
- 
-####################################################################################################################################
+--
 
 
-####################################################################################################################################
-LICENSE: Expat
+#3 LICENSE: Expat
+
 Copyright (C) 2014 Centre for Artificial Inteligence, Bangalore, 
               2014 Mahidhar Chellamani, 
-	            2014 Nitesh A Jain, 
+	      2014 Nitesh A Jain, 
               2014 Parthasarathy M Alwar,
               2014 Padmavati K 
  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
@@ -113,4 +95,3 @@ Copyright (C) 2014 Centre for Artificial Inteligence, Bangalore,
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS 
  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR ### IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-####################################################################################################################################
