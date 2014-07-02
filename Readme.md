@@ -7,39 +7,40 @@
   project in collaboration with BMS Institute of Technology and Centre for Artificial Intelligence (CAIR), DRDO, Bangalore.
 
 --
-## I. Files Used in the Package
 
-algo1.py --------------> "Deploy" function. This module tests the input traffic and computes if a window is an attack window or not.
-algo2.py --------------> "trainPhase" function. This module initiates training.
-algo3.py --------------> "train" function. This module trains the NBC.
-algo5.py --------------> "determineOptimalBands" function. Jump clustering algorithm.
-algo6.py --------------> "updateProbabilities" function.  This algorithm computes and updates the probability based on the events.
-algo7.py --------------> "determineThresholdProbability" function. 
-algo8.py --------------> "TCPstream" class. This class holds information about a praticular stream.
-darpaattack1 ----------> Contains flags from DARPA 1999 Week 1 Tuesday and manual injection of attack flags
-darpaattack2 ----------> Contains flags from DARPA 1999 Week 3 Friday and manual injection of attack flags
-darpaattack3 ----------> Contains flags from DARPA 1998 Week 3 Thursday which contains only attack data. No manual injection.
-thesisattacks ---------> Contains flags from a manually generated attack as specified by the original authors
-darpanoattack1 --------> Contains flags from DARPA 1999 Week 1 Wednesday
-darpanoattack2---------> Contains flags from DARPA 1999 Week 3 Tuesday and Wednesday
-darpatrain ------------> Contains flags from DARPA 1999 Week 1 Monday and Thursday
-main.py ---------------> This the main program. This is to be executed first to begin testing.
-parser.py -------------> Takes tcpdump filenames and gives the output flag array
-thresholdP ------------> Stores the Threshold Probability generated 
+#### I. Files Used in the Package
+
+* algo1.py --------------> "Deploy" function. This module tests the input traffic and computes if a window is an attack window or not.
+* algo2.py --------------> "trainPhase" function. This module initiates training.
+* algo3.py --------------> "train" function. This module trains the NBC.
+* algo5.py --------------> "determineOptimalBands" function. Jump clustering algorithm.
+* algo6.py --------------> "updateProbabilities" function.  This algorithm computes and updates the probability based on the events.
+* algo7.py --------------> "determineThresholdProbability" function. 
+* algo8.py --------------> "TCPstream" class. This class holds information about a praticular stream.
+* darpaattack1 ----------> Contains flags from DARPA 1999 Week 1 Tuesday and manual injection of attack flags
+* darpaattack2 ----------> Contains flags from DARPA 1999 Week 3 Friday and manual injection of attack flags
+* darpaattack3 ----------> Contains flags from DARPA 1998 Week 3 Thursday which contains only attack data. No manual injection.
+* thesisattacks ---------> Contains flags from a manually generated attack as specified by the original authors
+* darpanoattack1 --------> Contains flags from DARPA 1999 Week 1 Wednesday
+* darpanoattack2---------> Contains flags from DARPA 1999 Week 3 Tuesday and Wednesday
+* darpatrain ------------> Contains flags from DARPA 1999 Week 1 Monday and Thursday
+* main.py ---------------> This the main program. This is to be executed first to begin testing.
+* parser.py -------------> Takes tcpdump filenames and gives the output flag array
+* thresholdP ------------> Stores the Threshold Probability generated 
 
 --
 
-## II. Hardware Requirements : 
+#### II. Hardware Requirements : 
 
-Processor: Any x86 or x86_64 based processor
-Random Access Memory (RAM): 4GB or above
+* Processor: Any x86 or x86_64 based processor
+* Random Access Memory (RAM): 4GB or above
 
 
 TO BE NOTED:  With the an Intel i5 3230M @ 2.6GHz and 8GB of RAM we have achieved an execution time for largest data file as 19m 0.011s
 
 --
 
-## III. Software Requirements: 
+#### III. Software Requirements: 
 * Operating System: Any GNU/Linux based OS. It has been tested on Debian, Manjaro and Ubuntu
 * Python 2.7.6
 * NumPy 1.8.1
@@ -51,7 +52,7 @@ on a different specification not conforming to the above configuration.
 
 --
 
-## IV. Details of the dataset used:
+#### IV. Details of the dataset used:
 
 1. DARPA 1999 Week 1 All files - To generate the training, testing and the attack data.
 2. DARPA 1999 Week 3 All files - To generate the training, testing and the attack data.
@@ -61,7 +62,7 @@ All of these datasets can be found on http://www.ll.mit.edu/
 
 --
 
-## V. Information about the Package:
+#### V. Information about the Package:
 
 * It is to be noted that the project was conducted with strict regard to only TCP. UDP support was not defined in the scope of this package.
 
@@ -75,23 +76,3 @@ specifications limited by Python.
 
 * The attack files have been hard coded into the main.py file. If a different input file (attack, training or no attack) has to be inserted, the main.py file 
 has to be modified with the required input file. 
-
---
-
-
-#3 LICENSE: Expat
-
-Copyright (C) 2014 Centre for Artificial Inteligence, Bangalore, 
-              2014 Mahidhar Chellamani, 
-	      2014 Nitesh A Jain, 
-              2014 Parthasarathy M Alwar,
-              2014 Padmavati K 
- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights to use, copy, modify,merge,publish, distribute, sublicense, and/or sell copies
- of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS 
- FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR ### IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
